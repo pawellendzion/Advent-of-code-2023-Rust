@@ -2,8 +2,9 @@ use std::{env, fs, result};
 
 mod day1;
 mod day2;
+mod day3;
 
-const COMPLETED_DAYS: u8 = 2;
+const COMPLETED_DAYS: u8 = 3;
 
 type Result<T> = result::Result<T, String>;
 
@@ -68,9 +69,10 @@ fn get_args() -> Result<(u8, Part, String)> {
 }
 
 fn solve(day: u8, part: Part, puzzle_data: String) -> Result<String> {
-    let result: String = match day {
+    let result = match day {
         1 => day1::Solution::new(part).solve(puzzle_data).to_string(),
         2 => day2::Solution::new(part).solve(puzzle_data).to_string(),
+        3 => day3::Solution::new(part).solve(puzzle_data).to_string(),
         _ => return Err(format!("Not found solution for day {}", day)),
     };
 
