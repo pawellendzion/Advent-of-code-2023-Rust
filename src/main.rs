@@ -7,8 +7,9 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
-const COMPLETED_DAYS: u8 = 7;
+const COMPLETED_DAYS: u8 = 8;
 
 type Result<T> = result::Result<T, String>;
 
@@ -81,8 +82,13 @@ fn solve(day: u8, part: Part, puzzle_data: String) -> Result<String> {
         5 => day5::Solution::new(part).solve(puzzle_data).to_string(),
         6 => day6::Solution::new(part).solve(puzzle_data).to_string(),
         7 => day7::Solution::new(part).solve(puzzle_data).to_string(),
+        8 => {
+            let answers = day8::solve(puzzle_data).unwrap();
+            format!("part_1 = {}\npart_2 = {}", answers.0, answers.1)
+        },
         _ => return Err(format!("Not found solution for day {}", day)),
     };
 
     Ok(result)
 }
+
